@@ -7,20 +7,20 @@ import { MessageCircle, MapPin, Instagram, Facebook, Youtube } from 'lucide-vue-
     <div class="container footer-grid">
       <div class="footer-col">
       <NuxtLink to="/" class="logo-link" @click="closeMenu">
-        <img src="/logo.png" alt="Logo Sabor Latino" style="height: 90px; ">
+        <img src="/logo-hz.png" alt="Logo Sabor Latino" style="height: 120px;">
       </NuxtLink>
         <p class="footer-desc">Formando talentos y transformando vidas a través del arte del movimiento en el corazón del Meta.</p>
         <div class="social-links">
           <a href="https://www.instagram.com/saborlatino_villavicencio/" target="_blank" aria-label="Visitar nuestro perfil de Instagram"><Instagram :size="20" /></a>
           <a href="https://www.facebook.com/share/1Ds68EoaG3/" target="_blank" aria-label="Visitar nuestro perfil de Facebook"><Facebook :size="20" /></a>
-          <a href="#" target="_blank" aria-label="Visitar nuestro canal de Youtube"><Youtube :size="20" /></a>
+          <a href="https://www.tiktok.com/@saborlatino_villavo?_r=1&_t=ZS-96MTmFaV1sG" target="_blank" aria-label="Visitar nuestro perfil de tiktok">tiktok<Tiktok :size="20" /></a>
         </div>
       </div>
 
       <div class="footer-col">
         <h4>Contacto</h4>
         <div class="contact-info">
-          <p><MapPin :size="18" class="icon" /> Calle 4 No 17-92 Hacaritama, Villavicencio</p>
+          <p><MapPin :size="18" class="icon" /><a href="https://maps.app.goo.gl/Y5D9pdoWR34punui7?g_st=ac">Calle 4 No 17-92 Vizcaya, Villavicencio</a></p>
           <NuxtLink 
             to="https://wa.me/573116517431?text=Hola,%20vengo%20del%20sitio%20web,%20%20me%20gustaría%20recibir%20más%20información%20sobre%20la%20academia" 
             target="_blank" 

@@ -17,7 +17,7 @@ const closeMenu = () => {
   <header class="navbar">
     <div class="container nav-container">
       <NuxtLink to="/" class="logo-link" @click="closeMenu">
-        <img src="/logo.png" alt="Logo Sabor Latino" class="logo-img">
+        <img src="/logo-hz.png" alt="Logo Sabor Latino" class="logo-img">
       </NuxtLink>
 
       <nav class="nav-links">
@@ -70,7 +70,7 @@ const closeMenu = () => {
 }
 
 .logo-img {
-  height: 75px; /* Ajusta este valor dependiendo de qué tan alto sea el logo real */
+  height: 85px; /* Ajusta este valor dependiendo de qué tan alto sea el logo real */
   width: auto;
   object-fit: contain;
 }
