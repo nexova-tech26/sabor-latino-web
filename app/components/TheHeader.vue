@@ -28,12 +28,12 @@ const closeMenu = () => {
         <NuxtLink to="/tienda" class="nav-item">Tienda</NuxtLink>
       </nav>
 
-      <button class="menu-toggle" @click="toggleMenu">
+      <button class="menu-toggle" @click="toggleMenu" aria-label="Abrir menú de navegación">
         <component :is="isMenuOpen ? X : Menu" />
       </button>
 
       <transition name="fade">
-        <nav v-if="isMenuOpen" class="mobile-menu">
+        <nav v-if="isMenuOpen" class="mobile-menu" >
           <NuxtLink to="/" class="mobile-item" @click="closeMenu">Inicio</NuxtLink>
           <NuxtLink to="/elencos" class="mobile-item" @click="closeMenu">Elencos</NuxtLink>
           <NuxtLink to="/social" class="mobile-item" @click="closeMenu">Baile Social</NuxtLink>

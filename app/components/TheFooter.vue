@@ -11,7 +11,7 @@ import { MessageCircle, MapPin, Instagram, Facebook, Youtube } from 'lucide-vue-
       </NuxtLink>
         <p class="footer-desc">Formando talentos y transformando vidas a través del arte del movimiento en el corazón del Meta.</p>
         <div class="social-links">
-          <a href="https://www.instagram.com/saborlatino_villavicencio/" target="_blank"><Instagram :size="20" /></a>
+          <a href="https://www.instagram.com/saborlatino_villavicencio/" target="_blank" aria-label="Visitar nuestro perfil de Instagram"><Instagram :size="20" /></a>
           <a href="#" target="_blank"><Facebook :size="20" /></a>
           <a href="#" target="_blank"><Youtube :size="20" /></a>
         </div>
