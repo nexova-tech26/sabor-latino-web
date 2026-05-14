@@ -1,0 +1,100 @@
+/* ================= RESETEO GLOBAL Y RESPONSIVE ================= */
+
+/* 1. Obliga a que los márgenes internos (padding) no ensanchen los elementos */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Bloquea estrictamente el scroll horizontal en toda la web */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Esta e  s la línea mágica que elimina el scroll lateral */
+}
+
+/* 3. Contenedor universal para alinear todo correctamente */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem; /* Margen interno para que en móvil nada toque los bordes de la pantalla */
+}
+
+/* ================= VARIABLES GLOBALES ================= */
+:root {
+  --bg-body: #050505;
+  --bg-surface: #111111;
+  --brand-blue: #005bb5;
+  --brand-blue-light: #4da8da;
+  --brand-green: #25D366;
+  --brand-green-hover: #1ebd5a;
+  --warning-yellow: #eab308;
+  
+  --text-main: #ffffff;
+  --text-muted: #a3a3a3;
+  --text-dark: #000000;
+  
+  --font-headings: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  
+  --container-width: 1200px;
+}
+
+/* ================= RESET BÁSICO ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Clase global para centrar contenido que usaremos mucho */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Clases globales para ocultar scrollbars nativos horribles */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ================= BOTÓN WHATSAPP GLOBAL ================= */
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem; /* Separación entre el icono y el texto */
+  background-color: var(--brand-green);
+  color: #000000;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 99px; /* Bordes totalmente redondeados (estilo píldora) */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transición suave para el hover */
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); /* Sombra verde sutil */
+}
+
+.btn-wa:hover {
+  background-color: var(--brand-green-hover);
+  transform: translateY(-2px); /* Pequeño salto hacia arriba al pasar el mouse */
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); /* La sombra se hace más grande */
+}
