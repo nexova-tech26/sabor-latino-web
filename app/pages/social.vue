@@ -143,7 +143,7 @@ useHead({
               <li><CheckCircle2 :size="18" class="check" /> 8 días de clases al mes</li>
               <li><CheckCircle2 :size="18" class="check" /> Aprendizaje progresivo y guiado</li>
             </ul>
-            <NuxtLink to="https://wa.me/573000000000?text=Hola,%20me%20interesa%20el%20plan%20Mensual%20de%20Baile%20Social" target="_blank" class="btn-outline">
+            <NuxtLink to="https://wa.me/573116517431?text=Hola,%20me%20interesa%20el%20Plan%20Principiantes%20" target="_blank" class="btn-outline">
               Inscribirme
             </NuxtLink>
           </div>
@@ -160,7 +160,7 @@ useHead({
               <li><CheckCircle2 :size="18" class="check" /> Desarrollo de tecnica</li>
               <li><CheckCircle2 :size="18" class="check" /> Mayor fluidez y confianza al bailar</li>
             </ul>
-            <NuxtLink to="https://wa.me/573000000000?text=Hola,%20me%20interesa%20el%20plan%20Trimestral%20de%20Baile%20Social" target="_blank" class="btn-outline">
+            <NuxtLink to="https://wa.me/573116517431?text=Hola,%20me%20interesa%20el%20plan%20Nivel%20Abierto" target="_blank" class="btn-outline">
               Inscribirme
             </NuxtLink>
           </div>
@@ -179,7 +179,7 @@ useHead({
               <li><CheckCircle2 :size="18" class="check" /> Mayor práctica, técnica y fluidez</li>
               <li><CheckCircle2 :size="18" class="check" /> Avanza más rápido en tu proceso</li>
             </ul>
-            <NuxtLink to="https://wa.me/573000000000?text=Hola,%20quiero%20agendar%20una%20clase%20Personalizada" target="_blank" class="btn-wa">
+            <NuxtLink to="https://wa.me/573000000000?text=Hola,%20me%20interesa%20el%20Plan%20Full" target="_blank" class="btn-wa">
               Inscribirme
             </NuxtLink>
           </div>
