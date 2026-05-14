@@ -132,14 +132,14 @@ const elencosData = {
               <div class="info-box">
                 <Calendar class="icon" :size="24" />
                 <div>
-                  <h4>Días de ensayo</h4>
+                  <h3>Días de ensayo</h3>
                   <p>{{ elencosData[activeTab].schedule }}</p>
                 </div>
               </div>
               <div class="info-box">
                 <Clock class="icon" :size="24" />
                 <div>
-                  <h4>Horario</h4>
+                  <h3>Horario</h3>
                   <p>{{ elencosData[activeTab].time }}</p>
                 </div>
               </div>

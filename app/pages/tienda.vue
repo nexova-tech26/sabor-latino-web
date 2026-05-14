@@ -135,14 +135,14 @@ const productosFiltrados = computed(() => {
         <div class="info-item">
           <Sparkles class="icon" />
           <div>
-            <h4>Calidad Premium</h4>
+            <h3>Calidad Premium</h3>
             <p>Materiales probados en escenario.</p>
           </div>
         </div>
         <div class="info-item">
           <ShoppingBag class="icon" />
           <div>
-            <h4>Entrega en Academia</h4>
+            <h3>Entrega en Academia</h3>
             <p>Recoge tu pedido en nuestra sede.</p>
           </div>
         </div>
