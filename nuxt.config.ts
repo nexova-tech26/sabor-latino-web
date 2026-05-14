@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         
         // Metadatos para Redes Sociales (Facebook, WhatsApp, Instagram)
         { property: 'og:type', content: 'website' },
-        { property: 'og:title', content: 'Sabor Latino Villavicencio - El Arte del Movimiento' },
+        { property: 'og:title', content: 'Sabor Latino Villavicencio - Academia de Baile' },
         { property: 'og:description', content: 'Formación profesional y baile social. ¡Únete a nuestra familia y brilla en el escenario!' },
         { property: 'og:image', content: 'https://sabor-latino-web.vercel.app/share-image.jpg' }, // Imagen que se verá al compartir
         { property: 'og:url', content: 'https://sabor-latino-web.vercel.app' },
