@@ -10,11 +10,21 @@ import { MessageCircle, MapPin, Instagram, Facebook, Youtube } from 'lucide-vue-
         <img src="/logo-hz.png" alt="Logo Sabor Latino" style="height: 120px;">
       </NuxtLink>
         <p class="footer-desc">Formando talentos y transformando vidas a través del arte del movimiento en el corazón del Meta.</p>
-        <div class="social-links">
-          <a href="https://www.instagram.com/saborlatino_villavicencio/" target="_blank" aria-label="Visitar nuestro perfil de Instagram"><Instagram :size="20" /></a>
-          <a href="https://www.facebook.com/share/1Ds68EoaG3/" target="_blank" aria-label="Visitar nuestro perfil de Facebook"><Facebook :size="20" /></a>
-          <a href="https://www.tiktok.com/@saborlatino_villavo?_r=1&_t=ZS-96MTmFaV1sG" target="_blank" aria-label="Visitar nuestro perfil de tiktok">tiktok<Tiktok :size="20" /></a>
-        </div>
+<div class="social-links">
+  <a href="https://www.instagram.com/saborlatino_villavicencio/" target="_blank" aria-label="Visitar nuestro perfil de Instagram">
+    <Instagram :size="20" />
+  </a>
+  
+  <a href="https://www.facebook.com/share/1Ds68EoaG3/" target="_blank" aria-label="Visitar nuestro perfil de Facebook">
+    <Facebook :size="20" />
+  </a>
+  
+  <a href="https://www.tiktok.com/@saborlatino_villavo?_r=1&_t=ZS-96MTmFaV1sG" target="_blank" aria-label="Visitar nuestro perfil de TikTok">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 7.9a6.6 6.6 0 0 1 -3.001 -1.9a6.6 6.6 0 0 1 -1.999 -4h-4v10.5a5 5 0 1 1 -5 -5a5 5 0 0 1 4 5v-9" />
+    </svg>
+  </a>
+</div>
       </div>
 
       <div class="footer-col">
