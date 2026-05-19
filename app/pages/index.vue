@@ -212,7 +212,7 @@ const instructores = [
           </NuxtLink>
 
           <NuxtLink to="/social" class="service-card">
-            <img src="https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?auto=format&fit=crop&q=80" alt="Baile Social" class="service-img">
+            <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&q=80" alt="Baile Social" class="service-img">
             <div class="service-content">
               <h3>Baile Social</h3>
               <p>Clases de salsa, bachata, ritmos latinos y urbanos para jóvenes y adultos que desean aprender, disfrutar y mejorar su estilo en un ambiente dinámico y social.</p>
