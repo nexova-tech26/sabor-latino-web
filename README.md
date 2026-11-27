@@ -1,75 +1,51 @@
-# Nuxt Minimal Starter
+# Sabor Latino Villavicencio — Sitio web
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Sitio oficial de la academia de baile Sabor Latino (Villavicencio, Meta).
 
-## Setup
+## Stack
 
-Make sure to install dependencies:
+- [Astro](https://astro.build) — generación estática, HTML sin runtime de framework.
+- [Tailwind CSS v4](https://tailwindcss.com) — sistema de diseño y utilidades.
+- [lucide-astro](https://github.com/lucide-icons/lucide) — iconografía.
+- Contenido centralizado en `src/data/` (elencos, planes, productos, instructores).
+
+## Comandos
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
+npm run dev      # http://localhost:4321
+npm run build    # genera dist/
+npm run preview  # previsualiza el build
 ```
 
-## Development Server
+## Estructura
 
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+```
+src/
+  components/    Header, Footer, PageHeader
+  data/          Contenido editable (precios, elencos, productos...)
+  layouts/       Base.astro (SEO, fuentes, JSON-LD)
+  pages/         index, elencos, social, servicios, tienda, 404
+  styles/        global.css (tokens de Tailwind y componentes)
+public/
+  images/        Imágenes locales optimizadas
 ```
 
-## Production
+## Editar contenido
 
-Build the application for production:
+- Precios y horarios de elencos: `src/data/elencos.ts`
+- Planes de baile social: `src/data/planes.ts`
+- Productos de la tienda: `src/data/productos.ts`
+- Instructores y equipo: `src/data/equipo.ts`
+- Servicios especiales: `src/data/servicios.ts`
+- Teléfono, dirección y redes: `src/data/site.ts`
 
-```bash
-# npm
-npm run build
+## Despliegue
 
-# pnpm
-pnpm build
+El proyecto genera HTML estático. En Vercel:
 
-# yarn
-yarn build
+- Framework preset: **Astro**
+- Build command: `npm run build`
+- Output directory: `dist`
 
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+El dominio de referencia está en `astro.config.mjs` (`site`). Actualízalo cuando se conecte el dominio definitivo.

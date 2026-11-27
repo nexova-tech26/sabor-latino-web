@@ -1,0 +1,355 @@
+---
+import Base from '../layouts/Base.astro'
+import {
+  ArrowRight,
+  ChevronDown,
+  MessageCircle,
+  Sparkles,
+} from '@lucide/astro'
+import { equipo, instructores } from '../data/equipo'
+import { wa } from '../data/site'
+
+const director = equipo.find((persona) => persona.destacado)
+const administracion = equipo.filter((persona) => !persona.destacado)
+
+const programas = [
+  {
+    href: '/elencos',
+    titulo: 'Elencos de Formación',
+    descripcion:
+      'Conoce nuestros 5 elencos de formación artística organizados por edades y niveles.',
+    enlace: 'Ver categorías',
+    imagen: '/images/elencos/pre-juvenil.jpg',
+  },
+  {
+    href: '/social',
+    titulo: 'Baile Social',
+    descripcion:
+      'Salsa, bachata, ritmos latinos y urbanos para jóvenes y adultos que quieren aprender y disfrutar.',
+    enlace: 'Ver planes',
+    imagen: '/images/social/latinos.jpg',
+  },
+  {
+    href: '/servicios',
+    titulo: 'Servicios Adicionales',
+    descripcion:
+      'Clases personalizadas, coreografías para eventos, shows y presentaciones.',
+    enlace: 'Más información',
+    imagen: '/images/servicios/shows.jpg',
+  },
+]
+---
+
+<Base
+  title="Sabor Latino Villavicencio | Academia de Baile"
+  description="Academia de baile en Villavicencio. Clases de salsa, bachata, ritmos latinos, elencos de formación y baile social para todas las edades."
+>
+  <!-- HERO -->
+  <section class="relative flex min-h-screen items-center overflow-hidden pt-20">
+    <img
+      src="/images/hero.jpg"
+      alt="Bailarines de Sabor Latino en escena"
+      class="absolute inset-0 h-full w-full object-cover opacity-40"
+      width="1920"
+      height="1280"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/20"></div>
+    <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent"></div>
+
+    <div class="container-page relative py-24">
+      <div class="max-w-2xl" data-reveal>
+        <span class="eyebrow">Academia de baile · Villavicencio</span>
+        <h1 class="mt-6 font-display text-5xl leading-[1.05] md:text-7xl">
+          Salsa, bachata y <span class="italic text-brand-light">pasión</span> en cada paso.
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
+          Baile social y formación artística profesional para todas las edades. Descubre tu ritmo
+          en la academia líder de Villavicencio.
+        </p>
+
+        <div class="mt-9 flex flex-wrap gap-4">
+          <a href="#programas" class="btn-wa">
+            Nuestros programas <ArrowRight class="h-5 w-5" />
+          </a>
+          <a
+            href={wa('Hola, quiero información sobre las clases de Sabor Latino')}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-outline"
+          >
+            Escríbenos <MessageCircle class="h-5 w-5" />
+          </a>
+        </div>
+
+        <dl class="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-white/10 pt-6 text-center">
+          <div>
+            <dt class="text-[0.65rem] uppercase tracking-[0.2em] text-white/45">Desde</dt>
+            <dd class="mt-1 font-display text-2xl">2021</dd>
+          </div>
+          <div>
+            <dt class="text-[0.65rem] uppercase tracking-[0.2em] text-white/45">Elencos</dt>
+            <dd class="mt-1 font-display text-2xl">5</dd>
+          </div>
+          <div>
+            <dt class="text-[0.65rem] uppercase tracking-[0.2em] text-white/45">Ritmos</dt>
+            <dd class="mt-1 font-display text-2xl">+10</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESENCIA -->
+  <section id="nosotros" class="py-24">
+    <div class="container-page grid items-center gap-14 md:grid-cols-2">
+      <div data-reveal>
+        <span class="eyebrow">Nuestra esencia</span>
+        <h2 class="section-title mt-4">Más que una academia, <span>una familia</span></h2>
+        <p class="mt-6 leading-relaxed text-white/70">
+          Desde 2021, Sabor Latino nació con el propósito de impulsar la salsa y la bachata en la
+          región, formando bailarines con técnica, disciplina y pasión por el baile.
+        </p>
+        <p class="mt-4 leading-relaxed text-white/70">
+          Hoy seguimos creciendo como una academia enfocada en el baile social y la formación
+          artística, llevando la salsa, la bachata, los ritmos latinos y urbanos a otro nivel, y
+          dejando huella en cada persona que hace parte de nuestra historia.
+        </p>
+        <a
+          href="/elencos"
+          class="mt-8 inline-flex items-center gap-2 font-semibold text-brand-light transition hover:text-white"
+        >
+          Conoce nuestros elencos <ArrowRight class="h-4 w-4" />
+        </a>
+      </div>
+
+      <div class="relative" data-reveal style="transition-delay: 120ms">
+        <div class="absolute -inset-4 rounded-3xl border border-brand/40"></div>
+        <img
+          src="/images/nosotros.jpg"
+          alt="Estudiantes de Sabor Latino en clase de baile"
+          class="relative aspect-[4/5] w-full rounded-2xl object-cover"
+          width="800"
+          height="1000"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- MISIÓN Y VISIÓN -->
+  <section class="bg-surface py-24">
+    <div class="container-page">
+      <div class="grid gap-8 md:grid-cols-2">
+        <article class="card border-l-4 border-l-brand p-8 md:p-10" data-reveal>
+          <Sparkles class="h-8 w-8 text-brand-light" />
+          <h2 class="mt-5 font-display text-3xl">Nuestra <span class="italic text-brand-light">Misión</span></h2>
+          <p class="mt-4 leading-relaxed text-white/65">
+            Formar personas a través del baile, promoviendo disciplina, conciencia y amor por los
+            ritmos latinos mediante una enseñanza de alta calidad, inclusiva y humana.
+          </p>
+          <p class="mt-4 leading-relaxed text-white/65">
+            Desarrollamos tanto el baile social como la formación artística profesional, creando
+            bailarines con técnica, pasión y valores que trascienden dentro y fuera del escenario.
+          </p>
+        </article>
+
+        <article class="card border-l-4 border-l-brand p-8 md:p-10" data-reveal style="transition-delay: 120ms">
+          <Sparkles class="h-8 w-8 text-brand-light" />
+          <h2 class="mt-5 font-display text-3xl">Nuestra <span class="italic text-brand-light">Visión</span></h2>
+          <p class="mt-4 leading-relaxed text-white/65">
+            Ser la academia líder de ritmos latinos en la región y un referente nacional e
+            internacional por nuestra excelencia artística, calidad de enseñanza y logros
+            competitivos, inspirando a cada generación a vivir el baile con pasión, disciplina y
+            sentido de familia.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="py-24">
+    <div class="container-page text-center">
+      <span class="eyebrow">Nuestro equipo</span>
+      <h2 class="section-title mt-4">Detrás de cada paso, <span>personas</span></h2>
+
+      <div class="mt-16 flex flex-col items-center gap-14">
+        {
+          director && (
+            <article class="max-w-sm" data-reveal>
+              <div class="mx-auto h-40 w-40 overflow-hidden rounded-full border-2 border-brand shadow-[0_0_35px_rgba(0,91,181,0.25)]">
+                <img
+                  src={director.imagen}
+                  alt={director.nombre}
+                  class="h-full w-full object-cover"
+                  width="320"
+                  height="320"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h3 class="mt-5 font-display text-2xl">{director.nombre}</h3>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-brand-light">
+                {director.rol}
+              </p>
+            </article>
+          )
+        }
+
+        <div class="grid w-full max-w-2xl gap-12 sm:grid-cols-2">
+          {
+            administracion.map((persona, index) => (
+              <article data-reveal style={`transition-delay: ${index * 120}ms`}>
+                <div class="mx-auto h-32 w-32 overflow-hidden rounded-full border-2 border-brand/70">
+                  <img
+                    src={persona.imagen}
+                    alt={persona.nombre}
+                    class="h-full w-full object-cover"
+                    width="256"
+                    height="256"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <h3 class="mt-4 font-display text-xl">{persona.nombre}</h3>
+                <p class="mt-1 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-brand-light">
+                  {persona.rol}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="mt-20 border-t border-white/10 pt-12">
+        <h3 class="text-xs font-bold uppercase tracking-[0.3em] text-white/50">
+          Nuestros instructores
+        </h3>
+        <button
+          id="instructores-toggle"
+          type="button"
+          class="btn-outline mt-6"
+          aria-expanded="false"
+          aria-controls="instructores-panel"
+        >
+          <span class="label-open">Ver instructores</span>
+          <span class="label-close hidden">Ocultar instructores</span>
+          <ChevronDown class="chevron h-4 w-4 transition-transform" />
+        </button>
+
+        <div id="instructores-panel" class="mt-12 hidden">
+          <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-4">
+            {
+              instructores.map((persona) => (
+                <article>
+                  <div class="mx-auto h-28 w-28 overflow-hidden rounded-full border-2 border-brand/70">
+                    <img
+                      src={persona.imagen}
+                      alt={persona.nombre}
+                      class="h-full w-full object-cover"
+                      width="224"
+                      height="224"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <h4 class="mt-4 font-display text-lg">{persona.nombre}</h4>
+                  <p class="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-brand-light">
+                    {persona.rol}
+                  </p>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMAS -->
+  <section id="programas" class="bg-surface py-24">
+    <div class="container-page">
+      <div class="mx-auto max-w-2xl text-center" data-reveal>
+        <span class="eyebrow">Nuestros programas</span>
+        <h2 class="section-title mt-4">Encuentra tu <span>ritmo</span></h2>
+        <p class="mt-5 text-white/65">
+          Elige el programa ideal para aprender, disfrutar y crecer a través del baile.
+        </p>
+      </div>
+
+      <div class="mt-14 grid gap-8 md:grid-cols-3">
+        {
+          programas.map((programa, index) => (
+            <a
+              href={programa.href}
+              class="group card overflow-hidden transition duration-300 hover:-translate-y-2 hover:border-brand/60"
+              data-reveal
+              style={`transition-delay: ${index * 100}ms`}
+            >
+              <img
+                src={programa.imagen}
+                alt={programa.titulo}
+                class="h-56 w-full object-cover opacity-80 transition duration-500 group-hover:opacity-100"
+                width="800"
+                height="600"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="p-7">
+                <h3 class="font-display text-2xl">{programa.titulo}</h3>
+                <p class="mt-3 text-sm leading-relaxed text-white/60">{programa.descripcion}</p>
+                <span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-light">
+                  {programa.enlace} <ArrowRight class="h-4 w-4" />
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24">
+    <div class="container-page">
+      <div
+        class="relative overflow-hidden rounded-3xl border border-brand/30 bg-gradient-to-br from-brand/20 via-surface to-ink p-10 text-center md:p-16"
+        data-reveal
+      >
+        <h2 class="section-title">¿Listo para <span>bailar?</span></h2>
+        <p class="mx-auto mt-5 max-w-xl text-white/65">
+          Tu primera clase es el primer paso. Escríbenos y te ayudamos a elegir el programa ideal
+          para tu edad y nivel.
+        </p>
+        <a
+          href={wa('Hola, quiero agendar mi primera clase en Sabor Latino')}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-wa mt-8"
+        >
+          Agenda tu clase <MessageCircle class="h-5 w-5" />
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const toggle = document.getElementById('instructores-toggle')
+  const panel = document.getElementById('instructores-panel')
+  const labelOpen = toggle?.querySelector('.label-open')
+  const labelClose = toggle?.querySelector('.label-close')
+  const chevron = toggle?.querySelector('.chevron')
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true'
+    toggle.setAttribute('aria-expanded', String(!open))
+    panel?.classList.toggle('hidden', open)
+    labelOpen?.classList.toggle('hidden', !open)
+    labelClose?.classList.toggle('hidden', open)
+    chevron?.classList.toggle('rotate-180', !open)
+  })
+</script>

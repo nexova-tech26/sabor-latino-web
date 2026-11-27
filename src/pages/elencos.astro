@@ -1,0 +1,164 @@
+---
+import Base from '../layouts/Base.astro'
+import PageHeader from '../components/PageHeader.astro'
+import { Banknote, Calendar, MessageCircle } from '@lucide/astro'
+import { elencos } from '../data/elencos'
+import { wa } from '../data/site'
+---
+
+<Base
+  title="Elencos de Formación | Sabor Latino Villavicencio"
+  description="Elencos de formación artística en Villavicencio: pre infantil, infantil, pre juvenil, juvenil y élite. Horarios, precios e inscripciones."
+>
+  <PageHeader
+    title="Nuestros"
+    highlight="Elencos"
+    subtitle="Formación artística y competitiva para desarrollar talento, disciplina y pasión por el baile."
+  />
+
+  <section class="pb-24">
+    <div class="container-page">
+      <div
+        class="flex gap-3 overflow-x-auto pb-2"
+        role="tablist"
+        aria-label="Categorías de elencos"
+      >
+        {
+          elencos.map((elenco, index) => (
+            <button
+              type="button"
+              id={`tab-${elenco.id}`}
+              class="tab"
+              role="tab"
+              data-tab={elenco.id}
+              aria-selected={index === 0 ? 'true' : 'false'}
+              aria-controls={`panel-${elenco.id}`}
+              tabindex={index === 0 ? '0' : '-1'}
+            >
+              {elenco.nombreCorto}
+              <span class="mt-1 block text-xs font-normal opacity-60">{elenco.edad}</span>
+            </button>
+          ))
+        }
+      </div>
+
+      {
+        elencos.map((elenco, index) => (
+          <div
+            id={`panel-${elenco.id}`}
+            data-panel={elenco.id}
+            role="tabpanel"
+            aria-labelledby={`tab-${elenco.id}`}
+            class:list={['mt-12', index !== 0 && 'hidden']}
+          >
+            <div class="grid items-center gap-12 lg:grid-cols-2">
+              <div>
+                <span
+                  class:list={[
+                    'inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wider',
+                    elenco.elite ? 'bg-gold/15 text-gold' : 'bg-brand/15 text-brand-light',
+                  ]}
+                >
+                  <Calendar class="h-4 w-4" /> Categoría {elenco.edad}
+                </span>
+
+                <h2 class="mt-6 font-display text-4xl md:text-5xl">{elenco.nombre}</h2>
+                <p class="mt-4 text-lg leading-relaxed text-white/65">{elenco.descripcion}</p>
+
+                <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                  <div
+                    class:list={[
+                      'card border-l-[3px] p-5',
+                      elenco.elite ? 'border-l-gold' : 'border-l-brand',
+                    ]}
+                  >
+                    <Calendar class:list={['h-6 w-6', elenco.elite ? 'text-gold' : 'text-brand-light']} />
+                    <h3 class="mt-3 text-sm font-bold">Horarios</h3>
+                    <p class="mt-1 text-sm leading-relaxed text-white/60">{elenco.horario}</p>
+                  </div>
+
+                  <div
+                    class:list={[
+                      'card border-l-[3px] p-5',
+                      elenco.elite ? 'border-l-gold' : 'border-l-brand',
+                    ]}
+                  >
+                    <Banknote class:list={['h-6 w-6', elenco.elite ? 'text-gold' : 'text-brand-light']} />
+                    <h3 class="mt-3 text-sm font-bold">Inversión</h3>
+                    <p class="mt-1 text-sm leading-relaxed text-white/60">
+                      Mensualidad {elenco.mensualidad} · Inscripción {elenco.inscripcion}
+                    </p>
+                  </div>
+                </div>
+
+                <a
+                  href={wa(
+                    elenco.elite
+                      ? 'Hola, quiero más información sobre el elenco Élite'
+                      : `Hola, quiero iniciar el proceso de inscripción para el ${elenco.nombre}`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class:list={['btn-wa mt-8', elenco.elite && 'bg-gold hover:bg-gold/90']}
+                >
+                  {elenco.elite ? 'Más información' : 'Inscríbete aquí'}
+                  <MessageCircle class="h-5 w-5" />
+                </a>
+              </div>
+
+              <div class="relative">
+                <div
+                  class:list={[
+                    'absolute -inset-3 rounded-2xl border',
+                    elenco.elite ? 'border-gold/50' : 'border-brand/50',
+                  ]}
+                />
+                <img
+                  src={elenco.imagen}
+                  alt={elenco.nombre}
+                  class="relative aspect-[4/5] w-full rounded-2xl object-cover"
+                  width="800"
+                  height="1000"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<script>
+  const tabs = Array.from(document.querySelectorAll('[data-tab]'))
+  const panels = Array.from(document.querySelectorAll('[data-panel]'))
+
+  const activate = (id) => {
+    tabs.forEach((tab) => {
+      const selected = tab.dataset.tab === id
+      tab.setAttribute('aria-selected', String(selected))
+      tab.setAttribute('tabindex', selected ? '0' : '-1')
+    })
+
+    panels.forEach((panel) => {
+      panel.classList.toggle('hidden', panel.dataset.panel !== id)
+    })
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activate(tab.dataset.tab))
+
+    tab.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return
+      event.preventDefault()
+      const next =
+        event.key === 'ArrowRight'
+          ? (index + 1) % tabs.length
+          : (index - 1 + tabs.length) % tabs.length
+      tabs[next].focus()
+      activate(tabs[next].dataset.tab)
+    })
+  })
+</script>
