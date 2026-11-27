@@ -6,7 +6,7 @@ Sitio oficial de la academia de baile Sabor Latino (Villavicencio, Meta).
 
 - [Astro](https://astro.build) — generación estática, HTML sin runtime de framework.
 - [Tailwind CSS v4](https://tailwindcss.com) — sistema de diseño y utilidades.
-- [lucide-astro](https://github.com/lucide-icons/lucide) — iconografía.
+- [@lucide/astro](https://github.com/lucide-icons/lucide) — iconografía.
 - Contenido centralizado en `src/data/` (elencos, planes, productos, instructores).
 
 ## Comandos
@@ -29,6 +29,8 @@ src/
   styles/        global.css (tokens de Tailwind y componentes)
 public/
   images/        Imágenes locales optimizadas
+docs/
+  IMAGENES.md    Guía para reemplazar fotos (nombres, tamaños y proporciones)
 ```
 
 ## Editar contenido
@@ -42,10 +44,22 @@ public/
 
 ## Despliegue
 
-El proyecto genera HTML estático. En Vercel:
+El proyecto genera HTML estático. El archivo `vercel.json` ya fija la
+configuración correcta, así que Vercel no necesita ajustes manuales de framework:
 
 - Framework preset: **Astro**
 - Build command: `npm run build`
 - Output directory: `dist`
 
-El dominio de referencia está en `astro.config.mjs` (`site`). Actualízalo cuando se conecte el dominio definitivo.
+### Dominio
+
+El dominio se define en un solo lugar: `astro.config.mjs` (`site`). También se
+puede sobrescribir con la variable de entorno `SITE_URL` en Vercel
+(*Settings → Environment Variables*), sin cambiar código. Ese valor alimenta el
+canonical, Open Graph, JSON-LD, el sitemap y `robots.txt`.
+
+### Imágenes
+
+Antes de publicar, reemplaza las fotos de marcador de posición por fotos reales
+de la academia. Consulta [`docs/IMAGENES.md`](docs/IMAGENES.md) para ver el
+listado de archivos, tamaños y proporciones recomendadas.
