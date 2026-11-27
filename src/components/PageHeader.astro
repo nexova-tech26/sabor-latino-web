@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string
+  highlight: string
+  subtitle: string
+}
+
+const { title, highlight, subtitle } = Astro.props
+---
+
+<section class="bg-gradient-to-b from-black to-ink pb-16 pt-36">
+  <div class="container-page text-center" data-reveal>
+    <h1 class="font-display text-4xl leading-tight md:text-6xl">
+      {title} <span class="italic text-brand-light">{highlight}</span>
+    </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg">
+      {subtitle}
+    </p>
+  </div>
+</section>

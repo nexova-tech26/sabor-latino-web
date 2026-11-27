@@ -1,0 +1,279 @@
+---
+import Base from '../layouts/Base.astro'
+import PageHeader from '../components/PageHeader.astro'
+import {
+  AudioLines,
+  CircleCheck,
+  Clock,
+  Heart,
+  MessageCircle,
+  Sun,
+} from '@lucide/astro'
+import { planes } from '../data/planes'
+import { wa } from '../data/site'
+
+const beneficios = [
+  {
+    icono: Heart,
+    titulo: 'Salud y bienestar',
+    texto:
+      'Mejora tu coordinación, postura y confianza mientras disfrutas el baile.',
+  },
+  {
+    icono: Sun,
+    titulo: 'Cero estrés',
+    texto:
+      'Desconéctate de la rutina diaria. El baile es la forma perfecta de liberar estrés y recargar energía.',
+  },
+  {
+    icono: AudioLines,
+    titulo: 'Conexión social',
+    texto:
+      'Conoce nuevas personas y disfruta el baile en un ambiente social y divertido.',
+  },
+]
+
+const ritmos = [
+  {
+    titulo: 'Latinos',
+    subtitulo: 'Ritmos Latinos',
+    imagen: '/images/social/latinos.jpg',
+    lista: ['Salsa', 'Bachata', 'Merengue', 'Cha cha chá', 'Pachanga'],
+  },
+  {
+    titulo: 'Urbanos',
+    subtitulo: 'Ritmos Urbanos',
+    imagen: '/images/social/urbanos.jpg',
+    lista: ['Reggaetón', 'Sexy Style', 'Twerking', 'Salsa Choque', 'Champeta'],
+  },
+]
+
+const niveles = [
+  {
+    nombre: 'Nivel Principiante',
+    descripcion:
+      'Clases ideales para personas que desean empezar desde cero, desarrollando coordinación, ritmo, confianza y bases fundamentales para aprender a bailar.',
+    horario: 'Martes y jueves · 6:00 p. m.',
+    tono: 'basic',
+  },
+  {
+    nombre: 'Nivel Abierto',
+    descripcion:
+      'Clases para personas que desean seguir evolucionando en el baile, mejorando su técnica, fluidez, coordinación y estilo a través de diferentes ritmos y niveles de aprendizaje.',
+    horario: 'Lunes, miércoles y viernes · 6:00 p. m. / Miércoles · 8:00 p. m.',
+    tono: 'open',
+  },
+]
+---
+
+<Base
+  title="Baile Social | Sabor Latino Villavicencio"
+  description="Aprende salsa, bachata y ritmos latinos desde cero en Villavicencio. Clases grupales, niveles para principiantes y abiertos, y planes mensuales."
+>
+  <PageHeader
+    title="Baile"
+    highlight="Social"
+    subtitle="Un espacio para aprender, disfrutar y conectar a través del baile."
+  />
+
+  <!-- BENEFICIOS -->
+  <section class="bg-surface py-16">
+    <div class="container-page">
+      <div class="grid gap-8 md:grid-cols-3">
+        {
+          beneficios.map((beneficio, index) => {
+            const Icono = beneficio.icono
+            return (
+              <article
+                class="text-center"
+                data-reveal
+                style={`transition-delay: ${index * 120}ms`}
+              >
+                <Icono class="mx-auto h-10 w-10 text-brand-light" />
+                <h2 class="mt-4 font-display text-2xl">{beneficio.titulo}</h2>
+                <p class="mt-3 text-sm leading-relaxed text-white/60">{beneficio.texto}</p>
+              </article>
+            )
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- RITMOS -->
+  <section class="py-24">
+    <div class="container-page">
+      <div class="text-center" data-reveal>
+        <span class="eyebrow">Lo que aprenderás</span>
+        <h2 class="section-title mt-4">Ritmos que <span>enamoran</span></h2>
+        <p class="mx-auto mt-5 max-w-xl text-white/60">
+          Pasa el cursor o toca cada tarjeta para descubrir los estilos que trabajamos en clase.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-2">
+        {
+          ritmos.map((ritmo, index) => (
+            <div
+              class="flip-card aspect-square"
+              tabindex="0"
+              role="group"
+              aria-label={`${ritmo.subtitulo}: ${ritmo.lista.join(', ')}`}
+              data-reveal
+              style={`transition-delay: ${index * 120}ms`}
+            >
+              <div class="flip-inner">
+                <div class="flip-face">
+                  <img
+                    src={ritmo.imagen}
+                    alt={ritmo.subtitulo}
+                    class="h-full w-full object-cover opacity-70"
+                    width="900"
+                    height="900"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                  <h3 class="absolute inset-x-0 bottom-6 text-center font-display text-3xl">
+                    {ritmo.titulo}
+                  </h3>
+                </div>
+
+                <div class="flip-face flip-back flex flex-col items-center justify-center border-2 border-brand bg-[#0f172a] p-8 text-center">
+                  <h3 class="font-display text-2xl text-brand-light">{ritmo.subtitulo}</h3>
+                  <ul class="mt-5 space-y-2 text-white/80">
+                    {ritmo.lista.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- NIVELES -->
+  <section class="pb-24">
+    <div class="container-page">
+      <div class="text-center" data-reveal>
+        <span class="eyebrow">Organiza tu semana</span>
+        <h2 class="section-title mt-4">Niveles y <span>horarios</span></h2>
+      </div>
+
+      <div class="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
+        {
+          niveles.map((nivel, index) => (
+            <article
+              class="card p-8"
+              data-reveal
+              style={`transition-delay: ${index * 120}ms`}
+            >
+              <span
+                class:list={[
+                  'inline-block rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-wider',
+                  nivel.tono === 'basic'
+                    ? 'border-brand-light/20 bg-brand-light/10 text-brand-light'
+                    : 'border-gold/20 bg-gold/10 text-gold',
+                ]}
+              >
+                {nivel.nombre}
+              </span>
+              <p class="mt-5 text-sm leading-relaxed text-white/65">{nivel.descripcion}</p>
+              <div class="mt-6 flex items-start gap-3 rounded-lg border-l-[3px] border-white/20 bg-black/20 p-4">
+                <Clock class="mt-0.5 h-5 w-5 shrink-0 text-brand-light" />
+                <p class="text-sm font-semibold text-white/85">{nivel.horario}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES -->
+  <section class="bg-surface py-24">
+    <div class="container-page">
+      <div class="text-center" data-reveal>
+        <span class="eyebrow">Inversión</span>
+        <h2 class="section-title mt-4">Nuestros <span>planes</span></h2>
+        <p class="mx-auto mt-5 max-w-xl text-white/60">
+          Elige la frecuencia que mejor se adapte a tu ritmo. Todas las clases incluyen acompañamiento
+          del instructor.
+        </p>
+      </div>
+
+      <div class="mt-14 grid items-center gap-8 lg:grid-cols-3">
+        {
+          planes.map((plan, index) => (
+            <article
+              class:list={[
+                'card relative flex flex-col p-8',
+                plan.destacado &&
+                  'border-2 border-brand bg-gradient-to-b from-surface to-[#0a1f33] lg:scale-105',
+              ]}
+              data-reveal
+              style={`transition-delay: ${index * 120}ms`}
+            >
+              {plan.destacado && (
+                <span class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-brand px-4 py-1 text-[0.65rem] font-bold uppercase tracking-[0.15em]">
+                  Más elegido
+                </span>
+              )}
+
+              <div class="border-b border-white/10 pb-6 text-center">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-brand-light">
+                  {plan.nombre}
+                </h3>
+                <p class="mt-3 text-sm text-white/45">${plan.precioClase} / clase</p>
+                <p class="mt-2 font-display text-5xl">
+                  ${plan.precio}
+                  <span class="font-sans text-base font-normal text-white/45">/mes</span>
+                </p>
+                {plan.ahorro && <p class="mt-2 text-xs font-bold text-wa">{plan.ahorro}</p>}
+              </div>
+
+              <ul class="mt-6 flex-1 space-y-3">
+                {plan.features.map((feature) => (
+                  <li class="flex items-start gap-3 text-sm text-white/75">
+                    <CircleCheck class="mt-0.5 h-4 w-4 shrink-0 text-wa" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={wa(`Hola, me interesa el ${plan.nombre}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                class:list={['mt-8', plan.destacado ? 'btn-wa' : 'btn-outline']}
+              >
+                Inscribirme
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24">
+    <div class="container-page text-center" data-reveal>
+      <h2 class="section-title">¿Tienes <span>dudas?</span></h2>
+      <p class="mx-auto mt-5 max-w-xl text-white/65">
+        Escríbenos y te ayudamos a elegir el nivel y el plan ideal para empezar.
+      </p>
+      <a
+        href={wa('Hola, tengo dudas sobre las clases de baile social')}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-wa mt-8"
+      >
+        Hablar con la academia <MessageCircle class="h-5 w-5" />
+      </a>
+    </div>
+  </section>
+</Base>

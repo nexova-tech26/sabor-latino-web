@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro'
+import { ArrowLeft, MessageCircle } from '@lucide/astro'
+import { wa } from '../data/site'
+---
+
+<Base
+  title="Página no encontrada | Sabor Latino Villavicencio"
+  description="La página que buscas no existe. Vuelve al inicio o escríbenos por WhatsApp."
+>
+  <section class="flex min-h-[75vh] items-center justify-center pt-24">
+    <div class="container-page text-center" data-reveal>
+      <p class="font-display text-7xl text-brand-light md:text-9xl">404</p>
+      <h1 class="mt-4 font-display text-4xl md:text-5xl">Este paso no existe</h1>
+      <p class="mx-auto mt-5 max-w-md text-white/60">
+        La página que buscas se movió o nunca estuvo aquí. Volvamos a la pista de baile.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href="/" class="btn-wa">
+          <ArrowLeft class="h-5 w-5" /> Volver al inicio
+        </a>
+        <a
+          href={wa('Hola, no encontré una página en el sitio web')}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-outline"
+        >
+          Escríbenos <MessageCircle class="h-5 w-5" />
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

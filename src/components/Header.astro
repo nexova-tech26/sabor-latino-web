@@ -1,0 +1,113 @@
+---
+import { Menu, X } from '@lucide/astro'
+import { wa } from '../data/site'
+
+const links = [
+  { href: '/', label: 'Inicio' },
+  { href: '/elencos', label: 'Elencos' },
+  { href: '/social', label: 'Baile Social' },
+  { href: '/servicios', label: 'Otros Servicios' },
+  { href: '/tienda', label: 'Tienda' },
+]
+
+const current = Astro.url.pathname.replace(/\/+$/, '') || '/'
+const isActive = (href: string) => current === href
+---
+
+<header class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-ink/95 backdrop-blur-md">
+  <div class="container-page flex h-20 items-center justify-between">
+    <a href="/" class="flex items-center" aria-label="Sabor Latino, ir al inicio">
+      <img
+        src="/logo-hz.png"
+        alt="Sabor Latino Villavicencio"
+        class="h-16 w-auto md:h-20"
+        width="240"
+        height="80"
+      />
+    </a>
+
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Navegación principal">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            aria-current={isActive(link.href) ? 'page' : undefined}
+            class:list={[
+              'text-sm font-semibold transition-colors hover:text-brand-light',
+              isActive(link.href) ? 'text-brand-light' : 'text-white/80',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      class="rounded-full border border-white/10 p-2 text-white transition hover:border-brand-light hover:text-brand-light lg:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Abrir menú de navegación"
+    >
+      <Menu class="icon-open h-6 w-6" />
+      <X class="icon-close hidden h-6 w-6" />
+    </button>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    class="hidden border-t border-white/5 bg-ink lg:hidden"
+    aria-label="Navegación móvil"
+  >
+    <div class="container-page flex flex-col py-4">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            aria-current={isActive(link.href) ? 'page' : undefined}
+            class:list={[
+              'border-b border-white/5 py-4 text-base font-semibold transition-colors last:border-0',
+              isActive(link.href) ? 'text-brand-light' : 'text-white/80',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href={wa('Hola, vengo del sitio web y me gustaría recibir más información sobre la academia')}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-wa mt-5"
+      >
+        Escríbenos por WhatsApp
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle')
+  const menu = document.getElementById('mobile-menu')
+  const iconOpen = toggle?.querySelector('.icon-open')
+  const iconClose = toggle?.querySelector('.icon-close')
+
+  const setOpen = (open) => {
+    if (!toggle || !menu) return
+    toggle.setAttribute('aria-expanded', String(open))
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación')
+    menu.classList.toggle('hidden', !open)
+    iconOpen?.classList.toggle('hidden', open)
+    iconClose?.classList.toggle('hidden', !open)
+  }
+
+  toggle?.addEventListener('click', () => {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true')
+  })
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false))
+  })
+</script>

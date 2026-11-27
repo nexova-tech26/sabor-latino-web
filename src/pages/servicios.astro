@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro'
+import PageHeader from '../components/PageHeader.astro'
+import { Building, Check, GraduationCap, MessageCircle, Sparkles } from '@lucide/astro'
+import { servicios } from '../data/servicios'
+import { wa } from '../data/site'
+
+const iconos = {
+  personalizadas: GraduationCap,
+  coreografias: Sparkles,
+  profesionales: Building,
+}
+---
+
+<Base
+  title="Otros Servicios | Sabor Latino Villavicencio"
+  description="Clases personalizadas, coreografías para bodas y eventos, y shows profesionales de baile en Villavicencio."
+>
+  <PageHeader
+    title="Servicios"
+    highlight="Especializados"
+    subtitle="Llevamos el baile más allá del salón de clases: experiencias personalizadas, coreografías y shows para tu evento."
+  />
+
+  <section class="pb-24">
+    <div class="container-page">
+      <div class="flex gap-3 overflow-x-auto pb-2" role="tablist" aria-label="Servicios especializados">
+        {
+          servicios.map((servicio, index) => (
+            <button
+              type="button"
+              id={`tab-${servicio.id}`}
+              class="tab"
+              role="tab"
+              data-tab={servicio.id}
+              aria-selected={index === 0 ? 'true' : 'false'}
+              aria-controls={`panel-${servicio.id}`}
+              tabindex={index === 0 ? '0' : '-1'}
+            >
+              {servicio.titulo} {servicio.resaltado}
+            </button>
+          ))
+        }
+      </div>
+
+      {
+        servicios.map((servicio, index) => {
+          const Icono = iconos[servicio.id]
+          return (
+            <div
+              id={`panel-${servicio.id}`}
+              data-panel={servicio.id}
+              role="tabpanel"
+              aria-labelledby={`tab-${servicio.id}`}
+              class:list={['mt-12', index !== 0 && 'hidden']}
+            >
+              <div class="grid items-center gap-12 lg:grid-cols-2">
+                <div>
+                  <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-light/10 text-brand-light">
+                    <Icono class="h-8 w-8" />
+                  </div>
+                  <h2 class="mt-6 font-display text-4xl md:text-5xl">
+                    {servicio.titulo} <span class="italic text-brand-light">{servicio.resaltado}</span>
+                  </h2>
+                  <p class="mt-4 text-lg leading-relaxed text-white/65">{servicio.descripcion}</p>
+
+                  <ul class="mt-6 space-y-3">
+                    {servicio.features.map((feature) => (
+                      <li class="flex items-start gap-3 text-sm text-white/75">
+                        <Check class="mt-0.5 h-4 w-4 shrink-0 text-brand-light" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <a
+                    href={wa(servicio.waMensaje)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-wa mt-8"
+                  >
+                    {servicio.waTexto} <MessageCircle class="h-5 w-5" />
+                  </a>
+                </div>
+
+                <div class="relative">
+                  <div class="absolute -inset-3 rounded-2xl border border-brand/40" />
+                  <img
+                    src={servicio.imagen}
+                    alt={`${servicio.titulo} ${servicio.resaltado}`}
+                    class="relative aspect-[4/3] w-full rounded-2xl object-cover"
+                    width="1000"
+                    height="750"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                </div>
+              </div>
+            </div>
+          )
+        })
+      }
+    </div>
+  </section>
+</Base>
+
+<script>
+  const tabs = Array.from(document.querySelectorAll('[data-tab]'))
+  const panels = Array.from(document.querySelectorAll('[data-panel]'))
+
+  const activate = (id) => {
+    tabs.forEach((tab) => {
+      const selected = tab.dataset.tab === id
+      tab.setAttribute('aria-selected', String(selected))
+      tab.setAttribute('tabindex', selected ? '0' : '-1')
+    })
+
+    panels.forEach((panel) => {
+      panel.classList.toggle('hidden', panel.dataset.panel !== id)
+    })
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activate(tab.dataset.tab))
+
+    tab.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return
+      event.preventDefault()
+      const next =
+        event.key === 'ArrowRight'
+          ? (index + 1) % tabs.length
+          : (index - 1 + tabs.length) % tabs.length
+      tabs[next].focus()
+      activate(tabs[next].dataset.tab)
+    })
+  })
+</script>

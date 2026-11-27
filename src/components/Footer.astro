@@ -1,0 +1,118 @@
+---
+import { MapPin, MessageCircle } from '@lucide/astro'
+import { site, wa } from '../data/site'
+---
+
+<footer class="border-t border-white/5 bg-black">
+  <div class="container-page grid gap-12 py-16 md:grid-cols-[1.6fr_1fr]">
+    <div>
+      <a href="/" class="inline-flex" aria-label="Sabor Latino, ir al inicio">
+        <img
+          src="/logo-hz.png"
+          alt="Sabor Latino Villavicencio"
+          class="h-24 w-auto"
+          width="288"
+          height="96"
+          loading="lazy"
+        />
+      </a>
+      <p class="mt-4 max-w-sm text-sm leading-relaxed text-white/60">
+        Formando talentos y transformando vidas a través del arte del movimiento en el corazón del
+        Meta.
+      </p>
+
+      <div class="mt-6 flex items-center gap-5 text-brand-light">
+        <a
+          href={site.social.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram de Sabor Latino"
+          class="transition hover:text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+          </svg>
+        </a>
+        <a
+          href={site.social.facebook}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook de Sabor Latino"
+          class="transition hover:text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+          </svg>
+        </a>
+        <a
+          href={site.social.tiktok}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok de Sabor Latino"
+          class="transition hover:text-white"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M21 7.9a6.6 6.6 0 0 1 -3.001 -1.9a6.6 6.6 0 0 1 -1.999 -4h-4v10.5a5 5 0 1 1 -5 -5a5 5 0 0 1 4 5v-9" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="font-display text-xl text-brand-light">Contacto</h2>
+      <p class="mt-5 flex items-start gap-3 text-sm leading-relaxed text-white/70">
+        <MapPin class="mt-0.5 h-5 w-5 shrink-0 text-brand-light" />
+        <a href={site.maps} target="_blank" rel="noopener noreferrer" class="transition hover:text-white">
+          {site.address}
+        </a>
+      </p>
+      <a
+        href={wa('Hola, vengo del sitio web y me gustaría recibir más información sobre la academia')}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-wa mt-6"
+      >
+        <MessageCircle class="h-5 w-5" /> Contáctanos
+      </a>
+    </div>
+  </div>
+
+  <div class="border-t border-white/5 py-6 text-center text-xs text-white/40">
+    © 2026 Sabor Latino Villavicencio. Desarrollado por Nexova Tech.
+  </div>
+</footer>
