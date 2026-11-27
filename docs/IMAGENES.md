@@ -1,4 +1,4 @@
-# Guía de imágenes
+﻿# Guía de imágenes
 
 Todas las fotos del sitio viven en `public/images/` y se referencian desde
 `src/data/` y las páginas. Para reemplazar una imagen basta con sobrescribir el
@@ -21,22 +21,22 @@ archivo **manteniendo el mismo nombre**; no hay que tocar código.
 | Archivo | Uso | Tamaño sugerido | Proporción |
 | --- | --- | --- | --- |
 | `images/hero.jpg` | Portada de la página de inicio | 1920 × 1080 | 16:9 |
-| `images/nosotros.jpg` | Sección "Nosotros" | 1200 × 900 | 4:3 |
+| `images/nosotros.jpg` | Sección "Nosotros" | 1000 × 1250 | 4:5 |
 | `images/elencos/pre-infantil.jpg` | Elenco Pre-infantil | 1000 × 1250 | 4:5 |
 | `images/elencos/infantil.jpg` | Elenco Infantil | 1000 × 1250 | 4:5 |
 | `images/elencos/pre-juvenil.jpg` | Elenco Pre-juvenil | 1000 × 1250 | 4:5 |
 | `images/elencos/juvenil.jpg` | Elenco Juvenil | 1000 × 1250 | 4:5 |
 | `images/elencos/elite.jpg` | Elenco Élite | 1000 × 1250 | 4:5 |
-| `images/equipo/santiago.jpg` | Dirección / equipo | 800 × 1000 | 4:5 |
-| `images/equipo/freddy.jpg` | Dirección / equipo | 800 × 1000 | 4:5 |
-| `images/equipo/ingrid.jpg` | Dirección / equipo | 800 × 1000 | 4:5 |
-| `images/instructores/alonso.jpg` | Instructor | 800 × 1000 | 4:5 |
-| `images/instructores/andres-ramirez.jpg` | Instructor | 800 × 1000 | 4:5 |
-| `images/instructores/isabela.jpg` | Instructora | 800 × 1000 | 4:5 |
-| `images/instructores/andres-duran.jpg` | Instructor | 800 × 1000 | 4:5 |
-| `images/instructores/jonathan.jpg` | Instructor | 800 × 1000 | 4:5 |
-| `images/instructores/david.jpg` | Instructor | 800 × 1000 | 4:5 |
-| `images/instructores/maria-camila.jpg` | Instructora | 800 × 1000 | 4:5 |
+| `images/equipo/santiago.jpg` | Dirección / equipo (recorte circular) | 800 × 800 | 1:1 |
+| `images/equipo/freddy.jpg` | Dirección / equipo (recorte circular) | 800 × 800 | 1:1 |
+| `images/equipo/ingrid.jpg` | Dirección / equipo (recorte circular) | 800 × 800 | 1:1 |
+| `images/instructores/alonso.jpg` | Instructor (recorte circular) | 800 × 800 | 1:1 |
+| `images/instructores/andres-ramirez.jpg` | Instructor (recorte circular) | 800 × 800 | 1:1 |
+| `images/instructores/isabela.jpg` | Instructora (recorte circular) | 800 × 800 | 1:1 |
+| `images/instructores/andres-duran.jpg` | Instructor (recorte circular) | 800 × 800 | 1:1 |
+| `images/instructores/jonathan.jpg` | Instructor (recorte circular) | 800 × 800 | 1:1 |
+| `images/instructores/david.jpg` | Instructor (recorte circular) | 800 × 800 | 1:1 |
+| `images/instructores/maria-camila.jpg` | Instructora (recorte circular) | 800 × 800 | 1:1 |
 | `images/servicios/personalizadas.jpg` | Clases personalizadas | 1200 × 900 | 4:3 |
 | `images/servicios/coreografias.jpg` | Coreografías | 1200 × 900 | 4:3 |
 | `images/servicios/shows.jpg` | Shows y eventos | 1200 × 900 | 4:3 |
